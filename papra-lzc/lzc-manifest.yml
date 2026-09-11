@@ -9,6 +9,8 @@ services:
     binds:
       # DB sqlite + documenti + papra.config.yaml (PAPRA_CONFIG_DIR=./app-data)
       - /lzcapp/var/app-data:/app/app-data
+      # Watch folder: file messi in ingestion/<organization id>/ vengono importati e poi cancellati
+      - /lzcapp/var/ingestion:/app/ingestion
     # AUTH_SECRET obbligatorio dalla 0.3: generato una volta per installazione e
     # persistito nel config file, cosi' resta uguale fra restart/upgrade.
     setup_script: >-
@@ -19,3 +21,4 @@ services:
       - APP_BASE_URL=https://papra.${LAZYCAT_BOX_DOMAIN}
       - DOCUMENTS_DELETED_DOCUMENTS_RETENTION_DAYS=30
       - DOCUMENT_STORAGE_MAX_UPLOAD_SIZE=10737418240
+      - INGESTION_FOLDER_IS_ENABLED=true

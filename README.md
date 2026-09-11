@@ -26,6 +26,10 @@ Papra refuses to start without a secret of at least 32 chars. The manifest canno
 | `documents/` | uploaded files |
 | `papra.config.yaml` | generated auth secret, plus any override you add |
 
+## Ingestion folder
+
+`/lzcsys/data/appvar/cloud.lazycat.app.papra/ingestion/<organization id>/` (container `/app/ingestion`) is watched: drop a file there and Papra imports it into that organization, then deletes it (`INGESTION_FOLDER_POST_PROCESSING_STRATEGY=delete` upstream default; failed files go to `ingestion-error/`). The organization id is in the app URL (`/organizations/org_xxx`). Reachable via SSH on the box only; it is not exposed in the Lazycat file manager.
+
 Any Papra option can be added to that YAML (see https://docs.papra.app/self-hosting/configuration): e.g. `auth.isRegistrationEnabled: false` after creating your account.
 
 ## Upgrade to a new upstream version
