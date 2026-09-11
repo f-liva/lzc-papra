@@ -20,3 +20,5 @@ locales:
 permissions:
   required:
     - net.internet
+    # /lzcapp/documents/<uid> = Documenti/.apps/cloud.lazycat.app.papra nel file manager: watch folder
+    - document.private

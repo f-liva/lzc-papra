@@ -9,14 +9,16 @@ services:
     binds:
       # DB sqlite + documenti + papra.config.yaml (PAPRA_CONFIG_DIR=./app-data)
       - /lzcapp/var/app-data:/app/app-data
-      # Watch folder: file messi in ingestion/<organization id>/ vengono importati e poi cancellati
-      - /lzcapp/var/ingestion:/app/ingestion
     # AUTH_SECRET obbligatorio dalla 0.3: generato una volta per installazione e
     # persistito nel config file, cosi' resta uguale fra restart/upgrade.
+    # Watch folder = documenti privati dell'app (Documenti/.apps/cloud.lazycat.app.papra/<org id>/):
+    # single-instance, si prende il primo uid presente e si linka su /app/ingestion.
     setup_script: >-
       mkdir -p /app/app-data/db /app/app-data/documents &&
-      [ -s /app/app-data/papra.config.yaml ] ||
-      printf 'auth:\n  secret: %s\n' "$(head -c 48 /dev/urandom | od -An -tx1 | tr -d ' \n')" > /app/app-data/papra.config.yaml
+      { [ -s /app/app-data/papra.config.yaml ] ||
+      printf 'auth:\n  secret: %s\n' "$(head -c 48 /dev/urandom | od -An -tx1 | tr -d ' \n')" > /app/app-data/papra.config.yaml; } &&
+      U=$(ls /lzcapp/documents 2>/dev/null | head -n1) &&
+      { [ -n "$U" ] && rm -rf /app/ingestion && ln -sfn "/lzcapp/documents/$U" /app/ingestion || mkdir -p /app/ingestion; }
     environment:
       - APP_BASE_URL=https://papra.${LAZYCAT_BOX_DOMAIN}
       - DOCUMENTS_DELETED_DOCUMENTS_RETENTION_DAYS=30
