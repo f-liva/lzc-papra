@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "blobs": [
+    {
+      "digest": "sha256:96f2877d168f5a71e27fd9385bf1d4ff2db383ebf155e16081e220d8c974f09b",
+      "size": 1770
+    },
+    {
+      "digest": "sha256:d3d4c18ffdb6dc39312b967942ca0a981cae0bec7bed93dbc90d765f36614ffc",
+      "size": 9052
+    }
+  ],
+  "embeddedLayerBytes": 0,
+  "embeddedLayerCount": 0
+}

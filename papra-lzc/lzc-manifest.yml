@@ -1,0 +1,21 @@
+application:
+  routes:
+    - /=http://papra.cloud.lazycat.app.papra.lzcapp:1221
+  subdomain: papra
+
+services:
+  papra:
+    image: embed:papra
+    binds:
+      # DB sqlite + documenti + papra.config.yaml (PAPRA_CONFIG_DIR=./app-data)
+      - /lzcapp/var/app-data:/app/app-data
+    # AUTH_SECRET obbligatorio dalla 0.3: generato una volta per installazione e
+    # persistito nel config file, cosi' resta uguale fra restart/upgrade.
+    setup_script: >-
+      mkdir -p /app/app-data/db /app/app-data/documents &&
+      [ -s /app/app-data/papra.config.yaml ] ||
+      printf 'auth:\n  secret: %s\n' "$(head -c 48 /dev/urandom | od -An -tx1 | tr -d ' \n')" > /app/app-data/papra.config.yaml
+    environment:
+      - APP_BASE_URL=https://papra.${LAZYCAT_BOX_DOMAIN}
+      - DOCUMENTS_DELETED_DOCUMENTS_RETENTION_DAYS=30
+      - DOCUMENT_STORAGE_MAX_UPLOAD_SIZE=10737418240

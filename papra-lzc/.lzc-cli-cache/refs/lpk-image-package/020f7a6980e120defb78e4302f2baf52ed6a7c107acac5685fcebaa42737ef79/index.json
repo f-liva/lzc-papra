@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 2,
+  "manifests": [
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "digest": "sha256:96f2877d168f5a71e27fd9385bf1d4ff2db383ebf155e16081e220d8c974f09b",
+      "size": 1770,
+      "annotations": {
+        "org.opencontainers.image.ref.name": "papra"
+      }
+    }
+  ]
+}

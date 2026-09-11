@@ -1,0 +1,7 @@
+pkgout: ./
+icon: icon.png
+
+images:
+  papra:
+    dockerfile: ../docker/papra/Dockerfile
+    upstream-match: registry.lazycat.cloud

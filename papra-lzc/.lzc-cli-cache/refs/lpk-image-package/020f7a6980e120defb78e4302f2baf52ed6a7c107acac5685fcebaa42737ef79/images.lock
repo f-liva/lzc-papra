@@ -1,0 +1,26 @@
+version: 1
+images:
+  papra:
+    image_id: sha256:d3d4c18ffdb6dc39312b967942ca0a981cae0bec7bed93dbc90d765f36614ffc
+    upstream: registry.lazycat.cloud/u30562882/papra-hq/papra:5361b49d47d797ee@sha256:5361b49d47d797ee8e527120f3377ef62d5d661245ea30cf14985ca9ce22066c
+    layers:
+      - digest: sha256:3edb2192497af6e965b9b7e57dc6dbdce1f3ea721d14a98110419d4ded523298
+        source: upstream
+      - digest: sha256:a4b1b690e1058e84380cd1c9f29ee44b6de5cd8d1fcce362a91cc80c0db8bbb8
+        source: upstream
+      - digest: sha256:f515aeb498b2f696a7245a105cbc043577984fbdbe50ed146804c5f7d0c5b008
+        source: upstream
+      - digest: sha256:cc9312068c0225dae0ce544dbb309ae5bf505525af71f31d4e81a5b1fa97c9aa
+        source: upstream
+      - digest: sha256:baeb95af6381213abed6425911a993da48a44860c4d5f2e02ff48dbbdaa31353
+        source: upstream
+      - digest: sha256:a954182d5b9e490d3c76baabf8ec39623e2fef1e609ddbc4be3eb6563440f89a
+        source: upstream
+      - digest: sha256:50517bc4ec47f3087027a4a94770765c44fe7309af0bfe1b9d5b8b07defa58ad
+        source: upstream
+      - digest: sha256:1bcbe0528c925f591bf770ea2058bcb6c2c453a294b5db3ef213355c196d7a76
+        source: upstream
+      - digest: sha256:67ec27ded506213a975967215f2fa7c2f34a1aa1640d5eaec25374f833082ba8
+        source: upstream
+      - digest: sha256:787905bb68477afcbce00419e3c813ce7008463b9b71889c7e116bbfa4a7eda1
+        source: upstream

@@ -1,0 +1,22 @@
+package: cloud.lazycat.app.papra
+version: 26.6.2
+name: Papra
+description: Minimalistic document management and archiving platform. Self-hosted.
+author: Federico Liva
+license: AGPL-3.0
+homepage: https://github.com/f-liva/lzc-papra
+
+locales:
+  en-US:
+    name: Papra
+    description: Minimalistic document management and archiving platform. Self-hosted.
+  it-IT:
+    name: Papra
+    description: Gestione e archiviazione documenti, minimale e self-hosted.
+  zh-CN:
+    name: Papra
+    description: 简约的文档管理与归档平台（自托管）。
+
+permissions:
+  required:
+    - net.internet
