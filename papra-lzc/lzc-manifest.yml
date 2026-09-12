@@ -2,6 +2,10 @@ application:
   routes:
     - /=http://papra.cloud.lazycat.app.papra.lzcapp:1221
   subdomain: papra
+  # Webhook delle email di acquisizione (Cloudflare Email Worker): deve passare senza login Lazycat.
+  # Protetto dal segreto INTAKE_EMAILS_WEBHOOK_SECRET (in papra.config.yaml).
+  public_path:
+    - /api/intake-emails/ingest
 
 services:
   papra:
