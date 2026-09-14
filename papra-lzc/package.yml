@@ -1,4 +1,4 @@
-package: cloud.lazycat.app.papra
+package: xyz.mxue.papra
 version: 26.6.2
 name: Papra
 description: Minimalistic document management and archiving platform. Self-hosted.
